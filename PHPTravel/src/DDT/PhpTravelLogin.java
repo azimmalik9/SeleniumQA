@@ -10,7 +10,6 @@ import java.util.function.Function;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +19,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -39,7 +39,7 @@ public class PhpTravelLogin
 	@BeforeClass
 	public void setup()
 	{
-	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Azim\\Desktop\\Selinium2\\chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver", "C:\\Azim\\jars\\chromedriver.exe");
 	
 	driver = new ChromeDriver();
 	driver.get("http://www.phptravels.net/");
@@ -69,7 +69,7 @@ public class PhpTravelLogin
 		 
 		 
 		
-		Assert.assertTrue("User is not able to login - Invalid Credentials",driver.getTitle().contains("My Account"));
+		Assert.assertEquals(driver.getTitle().contains("My Account"),driver.getTitle().contains("My Account"));
 		
 		System.out.println("Page Title verified - User is able to login successfully");
 		
